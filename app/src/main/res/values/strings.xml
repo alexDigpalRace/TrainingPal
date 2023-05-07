@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">WorkoutDigpal</string>
+    <string name="weekTitle">Week:</string>
+    <string name="monthTitle">Month:</string>
+    <string name="startTimeLabel">Start time:</string>
+    <string name="endTimeLabel">End time</string>
+    <string name="selectedDay">Selected day:</string>
+</resources>

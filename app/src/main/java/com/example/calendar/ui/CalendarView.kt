@@ -9,7 +9,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.calendar.data.Datasource
 import com.example.calendar.model.Day
 import com.example.calendar.model.Exercise
 import com.example.calendar.model.Week
@@ -19,6 +21,17 @@ import com.example.calendar.ui.components.WorkoutDetails
 import com.example.calendar.util.DateHelper
 import java.time.LocalDate
 import java.util.*
+
+@Preview
+@Composable
+fun CalendarViewPreview() {
+    val mockDatasource = Datasource()
+    val calendar = Calendar.getInstance()
+//        val currentWeek = mockDatasource.getCurrentWeek(calendar)
+    val currentWeek = mockDatasource.mockWeek()
+
+    CalendarView(week = currentWeek, calendar = calendar)
+}
 
 @Composable
 fun CalendarView(week: Week, calendar: Calendar, modifier: Modifier = Modifier) {
@@ -86,6 +99,6 @@ fun CalendarView(week: Week, calendar: Calendar, modifier: Modifier = Modifier) 
             selectedDay.value?.workout,
             onExerciseChange = { exerciseName: String -> changeExercise(exerciseName) })
 
-        ExerciseDetails(modifier = modifier, exercise = selectedExerciseState)
+        ExerciseDetails(modifier = modifier, exercise = selectedExerciseState, isDisplay = true)
     }
 }

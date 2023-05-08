@@ -5,4 +5,6 @@
     <string name="startTimeLabel">Start time:</string>
     <string name="endTimeLabel">End time</string>
     <string name="selectedDay">Selected day:</string>
+    <string name="addExercise">Add exercise</string>
+    <string name="createWorkout">Create workout</string>
 </resources>

@@ -5,8 +5,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
@@ -36,7 +34,7 @@ fun WorkoutDetails(
         WorkoutTimeInput(
             label = stringResource(R.string.endTimeLabel), workout?.endTime ?: "No workout"
         )
-        ExercisesList(
+        ExerciseList(
             modifier = modifier, exercises = workout?.exercises ?: ArrayList(
                 listOf(
                     Exercise(
@@ -45,19 +43,6 @@ fun WorkoutDetails(
                 )
             ), onExerciseChange = onExerciseChange
         )
-    }
-}
-
-@Composable
-fun ExercisesList(
-    modifier: Modifier, exercises: ArrayList<Exercise>, onExerciseChange: (String) -> Unit
-) {
-    LazyColumn() {
-        items(exercises) { exercise ->
-            Button(onClick = { onExerciseChange(exercise.name) }) {
-                Text(text = exercise.name)
-            }
-        }
     }
 }
 
